@@ -14,7 +14,11 @@ RUN yum clean all
 
 RUN yum install -y libjpeg-devel zlib-devel openldap-devel mariadb-devel python-ldap python-devel python-setuptools gcc hg nginx
 
+RUN rm /etc/nginx/conf.d/*
+
 ADD nginx.conf /etc/nginx/nginx.conf
+
+ADD nginx-syslog.conf /etc/nginx/nginx-syslog.conf
 
 RUN easy_install virtualenv uwsgi
 
